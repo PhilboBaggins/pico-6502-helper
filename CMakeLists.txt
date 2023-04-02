@@ -25,7 +25,10 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Pico6502Helper Pico6502Helper.c)
+add_executable(Pico6502Helper
+  Pico6502Helper.c
+  usb_descriptors.c
+)
 
 pico_set_program_name(Pico6502Helper "Pico6502Helper")
 pico_set_program_version(Pico6502Helper "0.1")
@@ -45,6 +48,8 @@ target_link_libraries(Pico6502Helper
   hardware_pio
   hardware_timer
   hardware_clocks
+  tinyusb_device
+  tinyusb_board
 )
 
 pico_add_extra_outputs(Pico6502Helper)
